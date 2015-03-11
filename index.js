@@ -36,6 +36,10 @@ elixir.extend('browserify', function (src, options) {
         var browserified = function(filename) {
             var b = browserify(filename, options).ignore(options.ignore);
             
+            for (ignored in options.ignore)
+            {
+                b.ignore(options.ignore[ignored]);
+            }
             return b.bundle();
         };
 
