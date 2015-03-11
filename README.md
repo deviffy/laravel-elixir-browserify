@@ -38,7 +38,8 @@ elixir(function(mix) {
     	insertGlobals: true, 
     	transform: ["debowerify"],
     	output: "public/js",
-    	rename: "bundle.js"
+    	rename: "bundle.js",
+    	ignore: ['jquery']
     });
 });
 ```
