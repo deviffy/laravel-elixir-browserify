@@ -20,6 +20,7 @@ elixir.extend('browserify', function (src, options) {
             output:        config.jsOutput,
             transform:     [],
             insertGlobals: false,
+            ignore:        []
         };
 
     options = _.extend(defaultOptions, options);
@@ -33,7 +34,7 @@ elixir.extend('browserify', function (src, options) {
         };
 
         var browserified = function(filename) {
-            var b = browserify(filename, options);
+            var b = browserify(filename, options).ignore(options.ignore);
             
             return b.bundle();
         };
